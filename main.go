@@ -27,7 +27,7 @@ func main() {
 	db.Table("users").AutoMigrate(&model.User{})
 	db.Table("photos").AutoMigrate(&model.Photo{})
 	db.Table("comments").AutoMigrate(&model.Comment{})
-	db.Table("medias").AutoMigrate(&model.Media{})
+	db.Table("media").AutoMigrate(&model.Media{})
 
 	//Init Repository
 	userRepository := repository.NewUsersRepositoryImpl(db)

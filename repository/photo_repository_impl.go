@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"errors"
+
 	"github.com/hy-reza/mygram-api/helper"
 	"github.com/hy-reza/mygram-api/model"
 
@@ -31,11 +33,10 @@ func (p *PhotosRepositoryImpl) FindAll() (*[]model.Photo, error) {
 func (p *PhotosRepositoryImpl) FindById(photoId string) (*model.Photo, error) {
 	var photo model.Photo
 	result := p.Db.Preload("Comments").Find(&photo, "ID = ?", photoId)
-	if photo.Title != "" {
-		return &photo, result.Error
-	} else {
-		return nil, result.Error
+	if result.RowsAffected == 0 {
+		return &model.Photo{}, errors.New("photo not found")
 	}
+	return &photo, nil
 }
 
 func (p *PhotosRepositoryImpl) Update(photo *model.Photo) (*model.Photo, error) {

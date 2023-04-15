@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: MyGram API
   description: >-
@@ -92,7 +92,6 @@ info:
     - Postman: [https://documenter.getpostman.com/view/15041975/2s93Xx1k31](https://documenter.getpostman.com/view/15041975/2s93Xx1k31)
   contact: {}
   version: '1.0'
-jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
 servers:
 - url: https://mygram-api-production-09d0.up.railway.app/api/v1
   variables: {}
@@ -113,12 +112,11 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/RegisterRequest'
-              - examples:
-                - username: hyrezaalf
+              - example:
+                  username: hyrezaalf
                   email: hyrezaalf@gmail.com
                   password: rahasia
                   age: 22
-              contentMediaType: application/json
             example:
               username: hyrezaalf
               email: hyrezaalf@gmail.com
@@ -134,36 +132,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:52:55 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '272'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/RegisterSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully created user!
                     data:
@@ -173,7 +167,6 @@ paths:
                       age: 22
                       created_at: 2023-04-15T00:52:55.311075394Z
                       updated_at: 2023-04-15T00:52:55.311075394Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -193,41 +186,36 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:53:26 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '203'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/RegisterFailed1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Error
                     message: Registration Failed!
                     errors:
                     - "ERROR: Invalid Password (Key: 'CreateUserRequest.Password' Error:Field validation for 'Password' failed on the 'required' tag)!"
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Error
@@ -238,7 +226,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /authentication/login:
     post:
       tags:
@@ -253,10 +240,9 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/LoginRequest'
-              - examples:
-                - username: hyrezaalf
+              - example:
+                  username: hyrezaalf
                   password: rahasia
-              contentMediaType: application/json
             example:
               username: hyrezaalf
               password: rahasia
@@ -270,42 +256,37 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:54:50 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '312'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/LoginSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully log in!
                     data:
                       token_type: Bearer
                       token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE1MjM2OTAsImlhdCI6MTY4MTUyMDA5MCwibmJmIjoxNjgxNTIwMDkwLCJzdWIiOiJkNjM5MWQ5NC0xOWZhLTRjNjEtODdmYS1mNmU0NmNhZTllMjcifQ.C24mO1kCjeGtkVF0NbXPZUaEtMm2KfSQQCIufnZj5JQ
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -321,39 +302,34 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:55:14 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '76'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/LoginFailed1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Bad Request
                     message: Invalid username or password
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Bad Request
@@ -362,7 +338,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /users/list:
     get:
       tags:
@@ -379,36 +354,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:57:02 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '275'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetUsersSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetch all user data!
                     data:
@@ -418,7 +389,6 @@ paths:
                       age: 22
                       created_at: 2023-04-15T00:52:55.311075Z
                       updated_at: 2023-04-15T00:52:55.311075Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -436,7 +406,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /photos:
     post:
       tags:
@@ -451,11 +420,10 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/CreatePhotoRequest'
-              - examples:
-                - title: Photo Reza 21
+              - example:
+                  title: Photo Reza 21
                   caption: New Photo23as
                   photo_url: New Photo Url23
-              contentMediaType: application/json
             example:
               title: Photo Reza 21
               caption: New Photo23as
@@ -470,38 +438,33 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:58:35 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '64'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/CreatePhotoUnauthorized1'
-                - examples:
-                  - message: 'invalidate token: Token is expired'
+                - example:
+                    message: 'invalidate token: Token is expired'
                     status: fail
-                contentMediaType: application/json
               example:
                 message: 'invalidate token: Token is expired'
                 status: fail
@@ -513,36 +476,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 00:59:25 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '347'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/CreatePhotoSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully upload photo!
                     data:
@@ -554,7 +513,6 @@ paths:
                       comments: null
                       CreatedAt: 2023-04-15T00:59:25.21253817Z
                       UpdatedAt: 2023-04-15T00:59:25.21253817Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -576,41 +534,36 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:02:59 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '195'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/FailedRequiredField1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Error
                     message: Upload Photo Failed!
                     errors:
                     - "ERROR: Invalid Title (Key: 'CreatePhotoRequest.Title' Error:Field validation for 'Title' failed on the 'required' tag)!"
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Error
@@ -638,36 +591,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:00:10 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '352'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetAllSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetch all photos data!
                     data:
@@ -679,7 +628,6 @@ paths:
                       comments: []
                       CreatedAt: 2023-04-15T00:59:25.212538Z
                       UpdatedAt: 2023-04-15T00:59:25.212538Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -699,7 +647,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /photos/{id}:
     get:
       tags:
@@ -714,8 +661,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - 58754883-325c-4a2e-80b8-2d9fa6f510212
+          example: 58754883-325c-4a2e-80b8-2d9fa6f510212
       responses:
         '200':
           description: OK
@@ -725,36 +671,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:01:35 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '345'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetOneSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetch photo data!
                     data:
@@ -766,7 +708,6 @@ paths:
                       comments: []
                       CreatedAt: 2023-04-15T00:59:25.212538Z
                       UpdatedAt: 2023-04-15T00:59:25.212538Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -788,41 +729,36 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:02:06 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '179'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetPhotoFailed1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Bad Request
                     message: photos not found
                     errors:
                     - 'ERROR: invalid input syntax for type uuid: "58754883-325c-4a2e-80b8-2d9fa6f510212" (SQLSTATE 22P02)'
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Bad Request
@@ -848,8 +784,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - 58754883-325c-4a2e-80b8-2d9fa6f51026
+          example: 58754883-325c-4a2e-80b8-2d9fa6f51026
       requestBody:
         description: ''
         content:
@@ -857,10 +792,9 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/UpdatePhotoRequest'
-              - examples:
-                - caption: caption kok ilang
+              - example:
+                  caption: caption kok ilang
                   photo_url: New Photo Url23 updated
-              contentMediaType: application/json
             example:
               caption: caption kok ilang
               photo_url: New Photo Url23 updated
@@ -874,36 +808,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:04:34 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '369'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/UpdatePhotoSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully updated photo!
                     data:
@@ -915,7 +845,6 @@ paths:
                       comments: []
                       CreatedAt: 2023-04-15T00:59:25.212538Z
                       UpdatedAt: 2023-04-15T01:04:34.492954426Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -937,41 +866,36 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:05:08 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '195'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/UpdatePhotoRequiredField1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Error
                     message: Update Photo Failed!
                     errors:
                     - "ERROR: Invalid Title (Key: 'UpdatePhotoRequest.Title' Error:Field validation for 'Title' failed on the 'required' tag)!"
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Error
@@ -997,8 +921,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - 58754883-325c-4a2e-80b8-2d9fa6f51026
+          example: 58754883-325c-4a2e-80b8-2d9fa6f51026
       responses:
         '403':
           description: Forbidden
@@ -1008,24 +931,21 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Fri, 14 Apr 2023 23:42:02 GMT
             Content-Length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '89'
           content:
             application/json; charset=utf-8:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/DeleteFailedAccessDenied1'
-                - examples:
-                  - message: 'Access Denied: You are not authorized to modify this data !'
+                - example:
+                    message: 'Access Denied: You are not authorized to modify this data !'
                     status: fail
-                contentMediaType: application/json; charset=utf-8
               example:
                 message: 'Access Denied: You are not authorized to modify this data !'
                 status: fail
@@ -1037,39 +957,34 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:07:09 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '66'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/DeleteSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully deleted photo!
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1080,7 +995,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /comments:
     post:
       tags:
@@ -1095,9 +1009,8 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/CreateCommentRequest'
-              - examples:
-                - photo_id: 9be2d12f-587c-4710-b5ce-e72eef4b2d08
-              contentMediaType: application/json
+              - example:
+                  photo_id: 9be2d12f-587c-4710-b5ce-e72eef4b2d08
             example:
               photo_id: 9be2d12f-587c-4710-b5ce-e72eef4b2d08
         required: true
@@ -1110,36 +1023,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:08:30 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '331'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/CreateCommentSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully created comment!
                     data:
@@ -1149,7 +1058,6 @@ paths:
                       message: Mantap bro
                       CreatedAt: 2023-04-15T01:08:30.733654355Z
                       UpdatedAt: 2023-04-15T01:08:30.733654355Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1169,42 +1077,37 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:08:50 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '328'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/CreateCommentFailedRequireField1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Error
                     message: Comment Failed!
                     errors:
                     - "ERROR: Invalid PhotoId (Key: 'CreateCommentRequest.PhotoId' Error:Field validation for 'PhotoId' failed on the 'required' tag)!"
                     - "ERROR: Invalid Message (Key: 'CreateCommentRequest.Message' Error:Field validation for 'Message' failed on the 'required' tag)!"
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Error
@@ -1233,36 +1136,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:09:43 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '328'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetAllSuccess1'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetched comments!
                     data:
@@ -1272,7 +1171,6 @@ paths:
                       message: Mantap bro
                       CreatedAt: 2023-04-15T01:08:30.733654Z
                       UpdatedAt: 2023-04-15T01:08:30.733654Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1290,7 +1188,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /comments/{id}:
     get:
       tags:
@@ -1305,8 +1202,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - 8b7a676d-02c8-4317-81a3-d0354673404a
+          example: 8b7a676d-02c8-4317-81a3-d0354673404a
       responses:
         '200':
           description: OK
@@ -1316,36 +1212,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:10:43 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '325'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetOneSuccess1'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetched comment!
                     data:
@@ -1355,7 +1247,6 @@ paths:
                       message: Mantap bro
                       CreatedAt: 2023-04-15T01:08:30.733654Z
                       UpdatedAt: 2023-04-15T01:08:30.733654Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1375,41 +1266,36 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:11:12 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '95'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/NotFound1'
-                - examples:
-                  - code: 404
+                - example:
+                    code: 404
                     status: Not Found
                     message: Comment not found!
                     errors:
                     - comment not found
-                contentMediaType: application/json
               example:
                 code: 404
                 status: Not Found
@@ -1435,8 +1321,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - 8b7a676d-02c8-4317-81a3-d0354673404d
+          example: 8b7a676d-02c8-4317-81a3-d0354673404d
       requestBody:
         description: ''
         content:
@@ -1444,9 +1329,8 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/UpdateCommentRequest'
-              - examples:
-                - message: Keren cuy lanjutkan :)
-              contentMediaType: application/json
+              - example:
+                  message: Keren cuy lanjutkan :)
             example:
               message: Keren cuy lanjutkan :)
         required: true
@@ -1459,24 +1343,21 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Fri, 14 Apr 2023 23:51:05 GMT
             Content-Length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '89'
           content:
             application/json; charset=utf-8:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/AccessDenied1'
-                - examples:
-                  - message: 'Access Denied: You are not authorized to modify this data !'
+                - example:
+                    message: 'Access Denied: You are not authorized to modify this data !'
                     status: fail
-                contentMediaType: application/json; charset=utf-8
               example:
                 message: 'Access Denied: You are not authorized to modify this data !'
                 status: fail
@@ -1488,36 +1369,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:12:41 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '340'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/UpdateCommentSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully updated comment!
                     data:
@@ -1527,7 +1404,6 @@ paths:
                       message: Keren cuy lanjutkan :)
                       CreatedAt: 2023-04-15T01:08:30.733654Z
                       UpdatedAt: 2023-04-15T01:12:41.597429246Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1558,8 +1434,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - 8b7a676d-02c8-4317-81a3-d0354673404d
+          example: 8b7a676d-02c8-4317-81a3-d0354673404d
       responses:
         '403':
           description: Forbidden
@@ -1569,24 +1444,21 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Fri, 14 Apr 2023 23:51:30 GMT
             Content-Length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '89'
           content:
             application/json; charset=utf-8:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/AccessDenied1'
-                - examples:
-                  - message: 'Access Denied: You are not authorized to modify this data !'
+                - example:
+                    message: 'Access Denied: You are not authorized to modify this data !'
                     status: fail
-                contentMediaType: application/json; charset=utf-8
               example:
                 message: 'Access Denied: You are not authorized to modify this data !'
                 status: fail
@@ -1598,39 +1470,34 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:13:22 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '68'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/DeleteSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully deleted comment!
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1641,7 +1508,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /media:
     post:
       tags:
@@ -1656,9 +1522,8 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/CreateMediaRequest'
-              - examples:
-                - name: Instagram
-              contentMediaType: application/json
+              - example:
+                  name: Instagram
             example:
               name: Instagram
         required: true
@@ -1671,22 +1536,20 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:21:55 GMT
             Content-Length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '315'
           content:
             application/json; charset=utf-8:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/CreateMediaSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully created media!
                     data:
@@ -1696,7 +1559,6 @@ paths:
                       UserID: d6391d94-19fa-4c61-87fa-f6e46cae9e27
                       CreatedAt: 2023-04-15T08:21:55.858331+07:00
                       UpdatedAt: 2023-04-15T08:21:55.858331+07:00
-                contentMediaType: application/json; charset=utf-8
               example:
                 code: 200
                 status: Ok
@@ -1716,41 +1578,36 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:24:14 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '228'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/CreateMediaFailed1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Error
                     message: Create Media Failed!
                     errors:
                     - "ERROR: Invalid Social_media_url (Key: 'CreateMediaRequest.Social_media_url' Error:Field validation for 'Social_media_url' failed on the 'required' tag)!"
-                contentMediaType: application/json
               example:
                 code: 400
                 status: Error
@@ -1778,38 +1635,33 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:14:41 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '51'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetAllFailed1'
-                - examples:
-                  - message: You are not logged in
+                - example:
+                    message: You are not logged in
                     status: fail
-                contentMediaType: application/json
               example:
                 message: You are not logged in
                 status: fail
@@ -1821,36 +1673,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:24:52 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '778'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetAllSuccess2'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetch all media data!
                     data:
@@ -1872,7 +1720,6 @@ paths:
                       UserID: d6391d94-19fa-4c61-87fa-f6e46cae9e27
                       CreatedAt: 2023-04-15T01:24:49.066043Z
                       UpdatedAt: 2023-04-15T01:24:49.066043Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -1900,7 +1747,6 @@ paths:
       servers:
       - url: https://mygram-api-production-09d0.up.railway.app/api/v1
         variables: {}
-    parameters: []
   /{id}:
     get:
       tags:
@@ -1915,8 +1761,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - edcc3b8b-b856-47b6-9197-64cf19107fcf
+          example: edcc3b8b-b856-47b6-9197-64cf19107fcf
       responses:
         '400':
           description: Bad Request
@@ -1926,27 +1771,24 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Fri, 14 Apr 2023 22:54:14 GMT
             Content-Length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '93'
           content:
             application/json; charset=utf-8:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetOneFailed1'
-                - examples:
-                  - code: 400
+                - example:
+                    code: 400
                     status: Bad Request
                     message: media not found
                     errors:
                     - record not found
-                contentMediaType: application/json; charset=utf-8
               example:
                 code: 400
                 status: Bad Request
@@ -1961,36 +1803,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:25:59 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '308'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/GetOneSuccess2'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully fetch media data!
                     data:
@@ -2000,7 +1838,6 @@ paths:
                       UserID: d6391d94-19fa-4c61-87fa-f6e46cae9e27
                       CreatedAt: 2023-04-15T01:24:45.994296Z
                       UpdatedAt: 2023-04-15T01:24:45.994296Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -2031,8 +1868,7 @@ paths:
         style: simple
         schema:
           type: string
-          examples:
-          - edcc3b8b-b856-47b6-9197-64cf19107fcf
+          example: edcc3b8b-b856-47b6-9197-64cf19107fcf
       responses:
         '403':
           description: Forbidden
@@ -2042,24 +1878,21 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Fri, 14 Apr 2023 23:52:40 GMT
             Content-Length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '89'
           content:
             application/json; charset=utf-8:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/AccessDenied1'
-                - examples:
-                  - message: 'Access Denied: You are not authorized to modify this data !'
+                - example:
+                    message: 'Access Denied: You are not authorized to modify this data !'
                     status: fail
-                contentMediaType: application/json; charset=utf-8
               example:
                 message: 'Access Denied: You are not authorized to modify this data !'
                 status: fail
@@ -2071,39 +1904,34 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:28:00 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '66'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/DeleteMediaSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully deleted media!
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -2114,7 +1942,6 @@ paths:
       servers:
       - url: http://localhost:8888/api/v1/media
         variables: {}
-    parameters: []
   /:
     put:
       tags:
@@ -2129,10 +1956,9 @@ paths:
             schema:
               allOf:
               - $ref: '#/components/schemas/UpdateMediaRequest'
-              - examples:
-                - name: Instagram updated
+              - example:
+                  name: Instagram updated
                   social_media_url: Instagram.com
-              contentMediaType: application/json
             example:
               name: Instagram updated
               social_media_url: Instagram.com
@@ -2146,36 +1972,32 @@ paths:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: application/json; charset=utf-8
             date:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: Sat, 15 Apr 2023 01:26:57 GMT
             content-length:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: '316'
             server:
               content:
                 text/plain:
                   schema:
                     type: string
-                    contentMediaType: text/plain
                   example: railway
           content:
             application/json:
               schema:
                 allOf:
                 - $ref: '#/components/schemas/UpdateSuccess'
-                - examples:
-                  - code: 200
+                - example:
+                    code: 200
                     status: Ok
                     message: Successfully updated media!
                     data:
@@ -2185,7 +2007,6 @@ paths:
                       UserID: d6391d94-19fa-4c61-87fa-f6e46cae9e27
                       CreatedAt: 2023-04-15T01:24:45.994296Z
                       UpdatedAt: 2023-04-15T01:26:57.052110462Z
-                contentMediaType: application/json
               example:
                 code: 200
                 status: Ok
@@ -2198,7 +2019,6 @@ paths:
                   CreatedAt: 2023-04-15T01:24:45.994296Z
                   UpdatedAt: 2023-04-15T01:26:57.052110462Z
       deprecated: false
-    parameters: []
 components:
   schemas:
     RegisterRequest:
@@ -2218,9 +2038,9 @@ components:
           type: string
         age:
           type: integer
-          contentEncoding: int32
-      examples:
-      - username: hyrezaalf
+          format: int32
+      example:
+        username: hyrezaalf
         email: hyrezaalf@gmail.com
         password: rahasia
         age: 22
@@ -2235,15 +2055,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully created user!
         data:
@@ -2272,13 +2092,13 @@ components:
           type: string
         age:
           type: integer
-          contentEncoding: int32
+          format: int32
         created_at:
           type: string
         updated_at:
           type: string
-      examples:
-      - id: d6391d94-19fa-4c61-87fa-f6e46cae9e27
+      example:
+        id: d6391d94-19fa-4c61-87fa-f6e46cae9e27
         username: hyrezaalf
         email: hyrezaalf@gmail.com
         age: 22
@@ -2295,7 +2115,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2305,8 +2125,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Error
         message: Registration Failed!
         errors:
@@ -2322,8 +2142,8 @@ components:
           type: string
         password:
           type: string
-      examples:
-      - username: hyrezaalf
+      example:
+        username: hyrezaalf
         password: rahasia
     LoginSuccess:
       title: LoginSuccess
@@ -2336,15 +2156,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data1'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully log in!
         data:
@@ -2361,8 +2181,8 @@ components:
           type: string
         token:
           type: string
-      examples:
-      - token_type: Bearer
+      example:
+        token_type: Bearer
         token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE1MjM2OTAsImlhdCI6MTY4MTUyMDA5MCwibmJmIjoxNjgxNTIwMDkwLCJzdWIiOiJkNjM5MWQ5NC0xOWZhLTRjNjEtODdmYS1mNmU0NmNhZTllMjcifQ.C24mO1kCjeGtkVF0NbXPZUaEtMm2KfSQQCIufnZj5JQ
     LoginFailed1:
       title: LoginFailed1
@@ -2374,13 +2194,13 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Bad Request
         message: Invalid username or password
     GetUsersSuccess:
@@ -2394,7 +2214,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2404,8 +2224,8 @@ components:
           items:
             $ref: '#/components/schemas/Data'
           description: ''
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetch all user data!
         data:
@@ -2429,8 +2249,8 @@ components:
           type: string
         photo_url:
           type: string
-      examples:
-      - title: Photo Reza 21
+      example:
+        title: Photo Reza 21
         caption: New Photo23as
         photo_url: New Photo Url23
     CreatePhotoUnauthorized1:
@@ -2444,8 +2264,8 @@ components:
           type: string
         status:
           type: string
-      examples:
-      - message: 'invalidate token: Token is expired'
+      example:
+        message: 'invalidate token: Token is expired'
         status: fail
     CreatePhotoSuccess:
       title: CreatePhotoSuccess
@@ -2458,15 +2278,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data3'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully upload photo!
         data:
@@ -2502,15 +2322,14 @@ components:
         UserID:
           type: string
         comments:
-          type:
-          - string
-          - 'null'
+          type: string
+          nullable: true
         CreatedAt:
           type: string
         UpdatedAt:
           type: string
-      examples:
-      - ID: 58754883-325c-4a2e-80b8-2d9fa6f51026
+      example:
+        ID: 58754883-325c-4a2e-80b8-2d9fa6f51026
         title: Photo Reza 1
         caption: New Photo23
         photo_url: New Photo Url23
@@ -2529,7 +2348,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2539,8 +2358,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Error
         message: Upload Photo Failed!
         errors:
@@ -2556,7 +2375,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2566,8 +2385,8 @@ components:
           items:
             $ref: '#/components/schemas/Data4'
           description: ''
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetch all photos data!
         data:
@@ -2611,8 +2430,8 @@ components:
           type: string
         UpdatedAt:
           type: string
-      examples:
-      - ID: 58754883-325c-4a2e-80b8-2d9fa6f51026
+      example:
+        ID: 58754883-325c-4a2e-80b8-2d9fa6f51026
         title: Photo Reza 1
         caption: New Photo23
         photo_url: New Photo Url23
@@ -2631,15 +2450,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data4'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetch photo data!
         data:
@@ -2662,7 +2481,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2672,8 +2491,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Bad Request
         message: photos not found
         errors:
@@ -2689,8 +2508,8 @@ components:
           type: string
         photo_url:
           type: string
-      examples:
-      - caption: caption kok ilang
+      example:
+        caption: caption kok ilang
         photo_url: New Photo Url23 updated
     UpdatePhotoSuccess:
       title: UpdatePhotoSuccess
@@ -2703,15 +2522,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data4'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully updated photo!
         data:
@@ -2734,7 +2553,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2744,8 +2563,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Error
         message: Update Photo Failed!
         errors:
@@ -2761,8 +2580,8 @@ components:
           type: string
         status:
           type: string
-      examples:
-      - message: 'Access Denied: You are not authorized to modify this data !'
+      example:
+        message: 'Access Denied: You are not authorized to modify this data !'
         status: fail
     DeleteSuccess:
       title: DeleteSuccess
@@ -2774,13 +2593,13 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully deleted photo!
     CreateCommentRequest:
@@ -2791,8 +2610,8 @@ components:
       properties:
         photo_id:
           type: string
-      examples:
-      - photo_id: 9be2d12f-587c-4710-b5ce-e72eef4b2d08
+      example:
+        photo_id: 9be2d12f-587c-4710-b5ce-e72eef4b2d08
     CreateCommentSuccess:
       title: CreateCommentSuccess
       required:
@@ -2804,15 +2623,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data7'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully created comment!
         data:
@@ -2845,8 +2664,8 @@ components:
           type: string
         UpdatedAt:
           type: string
-      examples:
-      - ID: 8b7a676d-02c8-4317-81a3-d0354673404d
+      example:
+        ID: 8b7a676d-02c8-4317-81a3-d0354673404d
         UserID: d6391d94-19fa-4c61-87fa-f6e46cae9e27
         PhotoID: 9be2d12f-587c-4710-b5ce-e72eef4b2d08
         message: Mantap bro
@@ -2863,7 +2682,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2873,8 +2692,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Error
         message: Comment Failed!
         errors:
@@ -2891,7 +2710,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2901,8 +2720,8 @@ components:
           items:
             $ref: '#/components/schemas/Data7'
           description: ''
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetched comments!
         data:
@@ -2923,15 +2742,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data7'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetched comment!
         data:
@@ -2952,7 +2771,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -2962,8 +2781,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 404
+      example:
+        code: 404
         status: Not Found
         message: Comment not found!
         errors:
@@ -2976,8 +2795,8 @@ components:
       properties:
         message:
           type: string
-      examples:
-      - message: Keren cuy lanjutkan :)
+      example:
+        message: Keren cuy lanjutkan :)
     AccessDenied1:
       title: AccessDenied1
       required:
@@ -2989,8 +2808,8 @@ components:
           type: string
         status:
           type: string
-      examples:
-      - message: 'Access Denied: You are not authorized to modify this data !'
+      example:
+        message: 'Access Denied: You are not authorized to modify this data !'
         status: fail
     UpdateCommentSuccess:
       title: UpdateCommentSuccess
@@ -3003,15 +2822,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data7'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully updated comment!
         data:
@@ -3029,8 +2848,8 @@ components:
       properties:
         name:
           type: string
-      examples:
-      - name: Instagram
+      example:
+        name: Instagram
     CreateMediaSuccess:
       title: CreateMediaSuccess
       required:
@@ -3042,15 +2861,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data11'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully created media!
         data:
@@ -3083,8 +2902,8 @@ components:
           type: string
         UpdatedAt:
           type: string
-      examples:
-      - ID: b493361e-fabd-4e7a-8e9e-e8990a50a3a4
+      example:
+        ID: b493361e-fabd-4e7a-8e9e-e8990a50a3a4
         name: Instagram
         social_media_url: Instagram.com
         UserID: d6391d94-19fa-4c61-87fa-f6e46cae9e27
@@ -3101,7 +2920,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -3111,8 +2930,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Error
         message: Create Media Failed!
         errors:
@@ -3128,8 +2947,8 @@ components:
           type: string
         status:
           type: string
-      examples:
-      - message: You are not logged in
+      example:
+        message: You are not logged in
         status: fail
     GetAllSuccess2:
       title: GetAllSuccess2
@@ -3142,7 +2961,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -3152,8 +2971,8 @@ components:
           items:
             $ref: '#/components/schemas/Data11'
           description: ''
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetch all media data!
         data:
@@ -3186,7 +3005,7 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
@@ -3196,8 +3015,8 @@ components:
           items:
             type: string
           description: ''
-      examples:
-      - code: 400
+      example:
+        code: 400
         status: Bad Request
         message: media not found
         errors:
@@ -3213,15 +3032,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data11'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully fetch media data!
         data:
@@ -3242,8 +3061,8 @@ components:
           type: string
         social_media_url:
           type: string
-      examples:
-      - name: Instagram updated
+      example:
+        name: Instagram updated
         social_media_url: Instagram.com
     UpdateSuccess:
       title: UpdateSuccess
@@ -3256,15 +3075,15 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
         data:
           $ref: '#/components/schemas/Data11'
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully updated media!
         data:
@@ -3284,13 +3103,13 @@ components:
       properties:
         code:
           type: integer
-          contentEncoding: int32
+          format: int32
         status:
           type: string
         message:
           type: string
-      examples:
-      - code: 200
+      example:
+        code: 200
         status: Ok
         message: Successfully deleted media!
   securitySchemes:

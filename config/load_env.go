@@ -7,6 +7,7 @@ import (
 )
 
 type Config struct {
+	Env        string `mapstructure:"ENV"`
 	DBHost     string `mapstructure:"POSTGRES_HOST"`
 	DBUsername string `mapstructure:"POSTGRES_USER"`
 	DBPassword string `mapstructure:"POSTGRES_PASSWORD"`

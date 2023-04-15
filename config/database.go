@@ -9,7 +9,15 @@ import (
 )
 
 func ConnectionDB(config *Config) *gorm.DB {
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", config.DBHost, config.DBUsername, config.DBPassword, config.DBName, config.DBPort)
+
+	var dsn string
+
+	if config.Env == "production" {
+		dsn = "postgresql://postgres:KDONiTeAJpluDZELsTIV@containers-us-west-13.railway.app:7723/railway"
+	} else {
+		dsn = fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", config.DBHost, config.DBUsername, config.DBPassword, config.DBName, config.DBPort)
+	}
+
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	fmt.Println("Database connected successfuly!")

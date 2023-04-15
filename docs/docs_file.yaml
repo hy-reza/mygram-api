@@ -1,0 +1,497 @@
+openapi: 3.0.0
+info:
+  title: MyGram API
+  contact: {}
+  version: '1.0'
+servers:
+- url: http://localhost:8888/api/v1
+  variables: {}
+paths:
+  /authentication/register:
+    post:
+      tags:
+      - Auth
+      summary: Register
+      operationId: Register
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/RegisterRequest'
+              - example:
+                  username: hyrezaalf
+                  email: hyrezaalf@gmail.com
+                  password: rahasia
+                  age: 22
+            example:
+              username: hyrezaalf
+              email: hyrezaalf@gmail.com
+              password: rahasia
+              age: 22
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /authentication/login:
+    post:
+      tags:
+      - Auth
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/LoginRequest'
+              - example:
+                  username: hyrezaalf
+                  password: rahasia
+            example:
+              username: hyrezaalf
+              password: rahasia
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /:
+    get:
+      tags:
+      - Auth
+      summary: Get Users
+      operationId: GetUsers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    put:
+      tags:
+      - Media
+      summary: Update Media
+      operationId: UpdateMedia
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateMediaRequest'
+              - example:
+                  name: Instagram updated
+                  social_media_url: Instagram.com
+            example:
+              name: Instagram updated
+              social_media_url: Instagram.com
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /photos:
+    post:
+      tags:
+      - Photo
+      summary: Create Photo
+      operationId: CreatePhoto
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreatePhotoRequest'
+              - example:
+                  title: New Photo
+                  caption: New Photo
+                  photo_url: New Photo Url
+            example:
+              title: New Photo
+              caption: New Photo
+              photo_url: New Photo Url
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /photos/{id}:
+    put:
+      tags:
+      - Photo
+      summary: Update Photo
+      operationId: UpdatePhoto
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 'null'
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdatePhotoRequest'
+              - example:
+                  title: New Photo23 updated
+                  caption: New Photo23
+                  photo_url: New Photo Url23 updated
+            example:
+              title: New Photo23 updated
+              caption: New Photo23
+              photo_url: New Photo Url23 updated
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+      - Photo
+      summary: Delete Photo
+      operationId: DeletePhoto
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 'null'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /comments:
+    post:
+      tags:
+      - Comment
+      summary: Create Comment
+      operationId: CreateComment
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateCommentRequest'
+              - example:
+                  photo_id: acc6d94f-3b69-4115-8447-162ce6103cc0
+                  message: Keren cuy lanjutkan
+            example:
+              photo_id: acc6d94f-3b69-4115-8447-162ce6103cc0
+              message: Keren cuy lanjutkan
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /comments/{id}:
+    get:
+      tags:
+      - Comment
+      summary: Get One
+      operationId: GetOne1
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: fdf58479-18b6-42f1-9738-75abe63b7b1c
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    put:
+      tags:
+      - Comment
+      summary: Update Comment
+      operationId: UpdateComment
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 7379d10e-7bd4-4779-a7d6-9978e03e9a38
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/UpdateCommentRequest'
+              - example:
+                  message: Keren cuy lanjutkan :)
+            example:
+              message: Keren cuy lanjutkan :)
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Comment
+      summary: Delete Comment
+      operationId: DeleteComment
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: 'null'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /media:
+    post:
+      tags:
+      - Media
+      summary: Create Media
+      operationId: CreateMedia
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/CreateMediaRequest'
+              - example:
+                  name: Instagram
+                  social_media_url: Instagram.com
+            example:
+              name: Instagram
+              social_media_url: Instagram.com
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+  /media/{id}:
+    get:
+      tags:
+      - Media
+      summary: Get One
+      operationId: GetOne2
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: edcc3b8b-b856-47b6-9197-64cf19107fcf
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+    delete:
+      tags:
+      - Media
+      summary: Delete Media
+      operationId: DeleteMedia
+      parameters:
+      - name: id
+        in: path
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: edcc3b8b-b856-47b6-9197-64cf19107fcf
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+components:
+  schemas:
+    RegisterRequest:
+      title: RegisterRequest
+      required:
+      - username
+      - email
+      - password
+      - age
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        age:
+          type: integer
+          format: int32
+      example:
+        username: hyrezaalf
+        email: hyrezaalf@gmail.com
+        password: rahasia
+        age: 22
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - username
+      - password
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      example:
+        username: hyrezaalf
+        password: rahasia
+    CreatePhotoRequest:
+      title: CreatePhotoRequest
+      required:
+      - title
+      - caption
+      - photo_url
+      type: object
+      properties:
+        title:
+          type: string
+        caption:
+          type: string
+        photo_url:
+          type: string
+      example:
+        title: New Photo
+        caption: New Photo
+        photo_url: New Photo Url
+    UpdatePhotoRequest:
+      title: UpdatePhotoRequest
+      required:
+      - title
+      - caption
+      - photo_url
+      type: object
+      properties:
+        title:
+          type: string
+        caption:
+          type: string
+        photo_url:
+          type: string
+      example:
+        title: New Photo23 updated
+        caption: New Photo23
+        photo_url: New Photo Url23 updated
+    CreateCommentRequest:
+      title: CreateCommentRequest
+      required:
+      - photo_id
+      - message
+      type: object
+      properties:
+        photo_id:
+          type: string
+        message:
+          type: string
+      example:
+        photo_id: acc6d94f-3b69-4115-8447-162ce6103cc0
+        message: Keren cuy lanjutkan
+    UpdateCommentRequest:
+      title: UpdateCommentRequest
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Keren cuy lanjutkan :)
+    CreateMediaRequest:
+      title: CreateMediaRequest
+      required:
+      - name
+      - social_media_url
+      type: object
+      properties:
+        name:
+          type: string
+        social_media_url:
+          type: string
+      example:
+        name: Instagram
+        social_media_url: Instagram.com
+    UpdateMediaRequest:
+      title: UpdateMediaRequest
+      required:
+      - name
+      - social_media_url
+      type: object
+      properties:
+        name:
+          type: string
+        social_media_url:
+          type: string
+      example:
+        name: Instagram updated
+        social_media_url: Instagram.com
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: Auth
+- name: Photo
+- name: Comment
+- name: Media

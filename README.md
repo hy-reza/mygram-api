@@ -1,6 +1,6 @@
 # MyGram REST API
 
-MyGram adalah aplikasi yang memungkinkan pengguna untuk menyimpan foto dan membuat komentar pada foto orang lain. Aplikasi ini dilengkapi dengan proses CRUD pada tabel dan alur yang dijelaskan di bawah ini. Autentikasi diperlukan untuk mengakses data pada tabel SocialMedia, Photo, dan Comment menggunakan JsonWebToken. Proses otorisasi diperlukan untuk memodifikasi data kepemilikan seperti update atau delete.
+MyGram is an application that allows users to store photos and create comments on other people's photos. The application is equipped with CRUD processes on tables and flows as described below. Authentication is required to access data on the SocialMedia, Photo, and Comment tables using JsonWebToken. Authorization is required for modifying ownership data, such as update or delete.
 
 ## Endpoints
 
@@ -47,8 +47,26 @@ MyGram adalah aplikasi yang memungkinkan pengguna untuk menyimpan foto dan membu
 | PUT    | `/api/v1/media/:id`          | Update a specific media       |
 | DELETE | `/api/v1/media/:id`          | Delete a specific media       |
 
-## Dokumentasi Akses
+## Access Documentation
 
 - Swagger: https://mygram-api-production-09d0.up.railway.app/swagger/index.html#/
 - Postman: https://documenter.getpostman.com/view/15041975/2s93Xx1k31
+
+To run the project locally, follow these steps:
+
+1. Clone the repository.
+2. Install the required dependencies.
+3. Set up the database and environment variables.
+4. Run the application using `go run main.go`.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+If you find this project useful, please consider giving it a ⭐️ on [GitHub](https://github.com/hy-reza/learn-go-jwt). Your support is greatly appreciated! 😄
+
+
+
 

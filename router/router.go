@@ -17,7 +17,7 @@ func NewRouter(userRepository repository.UsersRepository, photoRepository reposi
 
 	service.StaticFile("/docs_file.yaml", "./docs/docs_file.yaml")
 
-	url := ginSwagger.URL("http://localhost:8888/docs_file.yaml")
+	url := ginSwagger.URL("https://mygram-api-production-09d0.up.railway.app/docs_file.yaml")
 	service.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	service.GET("", func(context *gin.Context) {

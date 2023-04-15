@@ -25,7 +25,8 @@ func NewAuthenticationController(service service.AuthenticationService) *Authent
 
 func (controller *AuthenticationController) Login(ctx *gin.Context) {
 	loginRequest := request.LoginRequest{}
-	err := ctx.ShouldBindJSON(&loginRequest)
+	ctx.ShouldBindJSON(&loginRequest)
+	err := validate.Struct(loginRequest)
 	helper.ErrorPanic(err)
 
 	token, err_token := controller.authenticationService.Login(loginRequest)
